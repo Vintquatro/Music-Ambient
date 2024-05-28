@@ -10,21 +10,9 @@ const Video = require('./models/video');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(bodyParser.json());
 app.use(cors());
 
-// Rota de teste
-app.get('/api/test', async (req, res) => {
-  try {
-    const genres = await Genre.findAll();
-    res.json(genres);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-// Rota para listar todos os gêneros
 app.get('/api/genres', async (req, res) => {
   try {
     const genres = await Genre.findAll();
@@ -34,18 +22,58 @@ app.get('/api/genres', async (req, res) => {
   }
 });
 
-// Iniciar o servidor e sincronizar o banco de dados
+app.get('/api/image', async (req, res) => {
+  try {
+    const image = await Image.findAll();
+    res.json(image);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/api/video', async (req, res) => {
+  try {
+    const video = await Video.findAll();
+    res.json(video);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/api/song', async (req, res) => {
+  try {
+    const song = await Song.findAll();
+    res.json(song);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get('/api/song/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const song = await Song.findByPk(id);
+    if (song) {
+      res.json(song);
+    } else {
+      res.status(404).json({ error: 'Song not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.listen(PORT, async () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   
   try {
     await sequelize.authenticate();
-    console.log('Conexão com o banco de dados estabelecida com sucesso.');
+    console.log('Database connection successfully established.');
     
-    await sequelize.sync(); // Use { force: true } apenas em desenvolvimento, pois ele recria as tabelas
-    console.log('Banco de dados sincronizado.');
+    await sequelize.sync();
+    console.log('Synchronised database.');
     
   } catch (error) {
-    console.error('Erro ao conectar a base de dados:', error);
+    console.error('Error connecting to the database:', error);
   }
 });
