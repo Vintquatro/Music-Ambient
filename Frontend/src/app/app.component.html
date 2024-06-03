@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Music Ambient Player</h1>
+
+  <!-- Genre Selection -->
+  <div>
+    <label for="genre-select">Select Genre:</label>
+    <select id="genre-select" (change)="onGenreChange($event)">
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+  </div>
+
+  <!-- Media Display -->
+  <div *ngIf="selectedGenre">
+    <h2>{{ selectedGenre.name }}</h2>
+
+    <!-- Background Image -->
+    <div class="background-media" *ngIf="currentImage">
+      <img [src]="getImageUrl(currentImage.file_path)" alt="Background Image">
+    </div>
+
+    <!-- Current Song -->
+    <div *ngIf="currentSong">
+      <h3>Current Song: {{ currentSong.title }}</h3>
+      <audio controls>
+        <source [src]="getSongUrl(currentSong.file_path)" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- Playback Controls -->
+    <div class="controls">
+      <button (click)="backwardSkip()">Backward Skip</button>
+      <button (click)="togglePlayPause()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
+      <button (click)="forwardSkip()">Forward Skip</button>
+    </div>
+  </div>
+</div>
+
+  

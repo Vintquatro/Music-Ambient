@@ -6,9 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://localhost:3000/api'; // Your backend API URL
 
-  testConnection(): Observable<any> {
-    return this.http.get('/api/test');
+  constructor(private http: HttpClient) { }
+
+  getSongsByGenre(genreId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/songs/genre/${genreId}`);
+  }
+
+  getImagesByGenre(genreId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/images/genre/${genreId}`);
+  }
+
+  getGenres(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/genres`);
   }
 }

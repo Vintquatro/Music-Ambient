@@ -1,0 +1,22 @@
+.container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .background-media {
+    margin: 20px 0;
+  }
+  
+  .background-media img,
+  .background-media video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  h1, h2, h3 {
+    margin: 10px 0;
+  }
+  

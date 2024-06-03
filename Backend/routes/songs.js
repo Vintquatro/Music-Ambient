@@ -1,7 +1,8 @@
 const express = require('express');
-const router = express.Router();
 const Song = require('../models/song');
+const router = express.Router();
 
+// Get all songs
 router.get('/', async (req, res) => {
   try {
     const songs = await Song.findAll();
@@ -11,18 +12,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+// Get songs by genre ID
+router.get('/genre/:genreId', async (req, res) => {
   try {
-    const id = req.params.id;
-    const song = await Song.findByPk(id);
-    if (song) {
-      res.json(song);
-    } else {
-      res.status(404).json({ error: 'Song not found' });
-    }
+    const songs = await Song.findAll({ where: { genre_id: req.params.genreId } });
+    res.json(songs);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
 module.exports = router;
+
+
