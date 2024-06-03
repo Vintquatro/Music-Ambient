@@ -1,0 +1,23 @@
+<nav class="navbar fixed-bottom bg-body-tertiary footer-height">
+    <div class="container-fluid">
+      <div class="row w-100">
+        <div class="col-4 d-flex justify-content-center align-items-center">
+          <button type="button" class="btn btn-primary">
+            <i class="bi bi-skip-start-fill"></i>
+          </button>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+          <button type="button" class="btn btn-primary" (click)="changeIcon()">
+            <i class="bi bi-pause-circle-fill" *ngIf="change"></i>
+            <i class="bi bi-play-circle-fill" *ngIf="!change"></i>
+          </button>
+        </div>
+        <div class="col-4 d-flex justify-content-center align-items-center">
+          <button type="button" class="btn btn-primary">
+            <i class="bi bi-skip-end-fill"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

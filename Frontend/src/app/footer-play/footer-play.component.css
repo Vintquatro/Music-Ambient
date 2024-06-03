@@ -1,0 +1,14 @@
+.footer-height{
+    height: 60px;
+}
+
+.container-width{
+    width: 239px;
+}
+
+@media (max-width: 576px) {
+    .footer-height {
+      height: 80px; /* Altura para dispositivos menores */
+    }
+    
+  }

@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MediaDisplayComponent } from './media-display/media-display.component';
 import { GenreSelectorComponent } from './genre-selector/genre-selector.component';
+import { FooterPlayComponent } from './footer-play/footer-play.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MediaDisplayComponent,
-    GenreSelectorComponent
+    GenreSelectorComponent,
+    FooterPlayComponent,
   ],
   imports: [
     BrowserModule,
