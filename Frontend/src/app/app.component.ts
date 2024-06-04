@@ -20,23 +20,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onGenreChange(event: any): void {
-    const genreId = event.target.value;
-    this.selectedGenre = this.genres.find(genre => genre.id == genreId);
-    console.log('Selected Genre:', this.selectedGenre);
-
-    this.apiService.getImagesByGenre(genreId).subscribe((data) => {
-      this.images = data;
-      if (this.images.length > 0) {
-        this.currentImage = this.images[0];
-      }
-      console.log('Fetched Images:', this.images);
-    });
+  onGenreChanged(event: any): void {
+    this.selectedGenre = event.genre;
+    this.currentImage = event.image;
   }
 
   getImageUrl(filePath: string): string {
     return filePath.startsWith('http') ? filePath : `http://localhost:3000${filePath}`;
   }
 }
-
-
