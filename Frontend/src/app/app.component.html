@@ -1,12 +1,7 @@
 <div class="container">
-  <h1>Music Ambient Player</h1>
-
   <!-- Genre Selection -->
   <div>
-    <label for="genre-select">Select Genre:</label>
-    <select id="genre-select" (change)="onGenreChange($event)">
-      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
-    </select>
+    <app-genre-selector (genreChanged)="onGenreChanged($event)"></app-genre-selector>
   </div>
 
   <!-- Media Display -->
@@ -20,4 +15,4 @@
   </div>
 </div>
 
-<app-footer-play [selectedGenre]="selectedGenre"></app-footer-play>  <!-- Correctly bind the selectedGenre -->
+<app-footer-play [selectedGenre]="selectedGenre"></app-footer-play>

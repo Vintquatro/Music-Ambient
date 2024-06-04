@@ -1,27 +1,25 @@
-<nav class="navbar fixed-bottom bg-body-tertiary footer-height">
+<nav class="navbar fixed-bottom bg-body-tertiary footer-height" style="z-index: 1;">
   <div class="container-fluid">
     <div class="row w-100">
-      <div class="col-4 d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary" (click)="backwardSkip()">
-          <i class="bi bi-skip-start-fill"></i>
-        </button>
-      </div>
-      <div class="col-4 d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary" (click)="togglePlayPause()">
-          <i class="bi bi-pause-circle-fill" *ngIf="isPlaying"></i>
-          <i class="bi bi-play-circle-fill" *ngIf="!isPlaying"></i>
-        </button>
-      </div>
-      <div class="col-4 d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn-primary" (click)="forwardSkip()">
-          <i class="bi bi-skip-end-fill"></i>
-        </button>
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <div class="btn-group" role="group" aria-label="Playback controls">
+          <button type="button" class="btn btn-primary" (click)="backwardSkip()">
+            <i class="bi bi-skip-start-fill"></i>
+          </button>
+          <button type="button" class="btn btn-primary mx-2" (click)="togglePlayPause()">
+            <i class="bi bi-pause-circle-fill" *ngIf="isPlaying"></i>
+            <i class="bi bi-play-circle-fill" *ngIf="!isPlaying"></i>
+          </button>
+          <button type="button" class="btn btn-primary" (click)="forwardSkip()">
+            <i class="bi bi-skip-end-fill"></i>
+          </button>
+        </div>
       </div>
     </div>
-    <div class="row w-100">
+    <div class="row w-100 mt-3">
       <div class="col-12 d-flex justify-content-center align-items-center">
-        <div *ngIf="currentSong">
-          <h3>Current Song: {{ currentSong.title }}</h3>
+        <div *ngIf="currentSong" class="text-center">
+          <h5>Current Song: {{ currentSong.title }}</h5>
           <audio #audioPlayer controls>
             <source [src]="getSongUrl(currentSong.file_path)" type="audio/mpeg">
             Your browser does not support the audio element.
