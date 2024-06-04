@@ -17,23 +17,7 @@
     <div class="background-media" *ngIf="currentImage">
       <img [src]="getImageUrl(currentImage.file_path)" alt="Background Image">
     </div>
-
-    <!-- Current Song -->
-    <div *ngIf="currentSong">
-      <h3>Current Song: {{ currentSong.title }}</h3>
-      <audio controls>
-        <source [src]="getSongUrl(currentSong.file_path)" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-
-    <!-- Playback Controls -->
-    <div class="controls">
-      <button (click)="backwardSkip()">Backward Skip</button>
-      <button (click)="togglePlayPause()">{{ isPlaying ? 'Pause' : 'Play' }}</button>
-      <button (click)="forwardSkip()">Forward Skip</button>
-    </div>
   </div>
 </div>
 
-<app-footer-play></app-footer-play>
+<app-footer-play [selectedGenre]="selectedGenre"></app-footer-play>  <!-- Correctly bind the selectedGenre -->

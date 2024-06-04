@@ -1,14 +1,43 @@
-.footer-height{
-    height: 60px;
+.footer-height {
+  height: 80px;
+  background-color: #f8f9fa; /* Optional: to see the footer clearly */
 }
 
-.container-width{
-    width: 239px;
+.container-fluid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.row {
+  width: 100%;
+}
+
+.col-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 576px) {
-    .footer-height {
-      height: 80px; /* Altura para dispositivos menores */
-    }
-    
+  .footer-height {
+    height: 100px; /* Increased height for smaller devices */
   }
+  
+  .audio-controls {
+    flex-direction: column;
+  }
+  
+  .audio-controls button {
+    margin: 5px 0;
+  }
+}
+
