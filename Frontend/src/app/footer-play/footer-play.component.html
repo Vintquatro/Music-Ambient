@@ -16,10 +16,10 @@
         </div>
       </div>
     </div>
-    <div class="row w-100 mt-3">
+    <div class="row w-100 mt-2">
       <div class="col-12 d-flex justify-content-center align-items-center">
         <div *ngIf="currentSong" class="text-center">
-          <h5>Current Song: {{ currentSong.title }}</h5>
+          <h6>Current Song: {{ currentSong.title }}</h6>
           <audio #audioPlayer controls>
             <source [src]="getSongUrl(currentSong.file_path)" type="audio/mpeg">
             Your browser does not support the audio element.
