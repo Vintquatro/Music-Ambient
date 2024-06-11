@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Serve static files
-app.use('/images', express.static(path.join(__dirname, '../../Images')));
-app.use('/songs', express.static(path.join(__dirname, '../../Songs')));
+app.use('/images', express.static(path.join(__dirname, '../Images')));
+app.use('/songs', express.static(path.join(__dirname, '../Songs')));
 
 // Import routes
 const genreRoutes = require('./routes/genres');
