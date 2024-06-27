@@ -1,22 +1,40 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particles-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensure particles are behind other content */
+}
+
 .container {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .background-media {
-    margin: 20px 0;
-  }
-  
-  .background-media img,
-  .background-media video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  h1, h2, h3 {
-    margin: 10px 0;
-  }
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* Ensure content is above particles */
+}
+
+.background-media {
+  margin: 20px 0;
+}
+
+.background-media img,
+.background-media video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  margin: 10px 0;
+}
   

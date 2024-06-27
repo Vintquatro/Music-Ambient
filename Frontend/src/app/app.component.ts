@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './Services/api.service';
 
+declare var particlesJS: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +20,15 @@ export class AppComponent implements OnInit {
     this.apiService.getGenres().subscribe((data) => {
       this.genres = data;
     });
+
+    // Initialize particles
+
+    particlesJS.load('particles-js', 'assets/particles.json', function() {
+      alert('particles.js loaded - callback');
+      console.log('particles.js loaded - callback');
+    });
   }
+  
 
   onGenreChanged(event: any): void {
     this.selectedGenre = event.genre;

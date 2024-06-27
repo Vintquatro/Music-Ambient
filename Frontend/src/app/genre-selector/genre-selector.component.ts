@@ -6,7 +6,7 @@ import { ApiService } from '../Services/api.service';
   templateUrl: './genre-selector.component.html',
   styleUrls: ['./genre-selector.component.css']
 })
-export class GenreSelectorComponent implements OnInit{
+export class GenreSelectorComponent implements OnInit {
   @Input() selectedGenre: any;
   genres: any[] = [];
   images: any[] = [];
@@ -22,8 +22,8 @@ export class GenreSelectorComponent implements OnInit{
     });
   }
 
-  onGenreChange(event: any): void {
-    const genreId = event.target.value;
+  onGenreChange(event: Event, genreId: number): void {
+    event.preventDefault();
     this.selectedGenre = this.genres.find(genre => genre.id == genreId);
     console.log('Selected Genre:', this.selectedGenre);
 
